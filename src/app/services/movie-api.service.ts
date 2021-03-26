@@ -10,7 +10,7 @@ export class MovieApiService {
 
   url= "http://www.omdbapi.com/"
   key= "457c0eea"
-  "http://www.omdbapi.com/?apikey=457c0eea&s=Batman"
+  
   constructor(private http: HttpClient) { }
 
   getMovies(title:string): Observable<any> {
@@ -18,4 +18,9 @@ export class MovieApiService {
     .pipe(
       map(data => data['Search']))
   }
+
+  getDetailMovie(id:string): Observable<any> {
+      return this.http.get(`${this.url}?apiKey=${this.key}&i=${id}`) 
+    }
+
 }

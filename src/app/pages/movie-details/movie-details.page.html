@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>movieDetails</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Back</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-margin"  *ngIf="(movieDetail|async) as movie">
+    <ion-grid >
+      <ion-col >
+        <ion-card >
+          <img class="align-img" [src]="movie.Poster" />
+          <ion-card-header class="align-center">
+            <ion-card-subtitle>{{movie.Genre}}</ion-card-subtitle>
+            <ion-card-title>{{movie.Title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="align-center">
+            {{movie.Plot}}
+          </ion-card-content>
+          <ion-text color="danger">
+            <p class="ion-text-end ion-margin-end" *ngFor= "let rating of movie.Ratings">{{rating.Source|json}}-{{rating.Value|json}}</p>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-grid>
+    
+  </ion-content>
+  
 
-</ion-content>
+
+

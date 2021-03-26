@@ -1,24 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Movies
-    </ion-title>
+    <ion-title class="ion-text-center"> Movie Search App </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <ion-searchbar [(ngModel)]="searchMovie" (ionChange)="search($event)" placeholder="Search movie"></ion-searchbar>
+<ion-content class="ion-margin" >
+  
+  <ion-searchbar class="ion-margin-top"  color="light" [(ngModel)]="searchMovie" (ionChange)="search($event)" placeholder="Search movie"></ion-searchbar>
 
     <ion-list *ngIf="(movies|async) as movieData">
       <ion-list-header>
         Movies
       </ion-list-header>
 
-      <ion-item *ngFor="let movie of movieData">
+      <ion-item class="ion-padding-start" *ngFor="let movie of movieData">
         <ion-avatar slot="start">
           <img [src]="movie.Poster">
         </ion-avatar>
-        <ion-label>
+        <ion-label [routerLink]="['/movies', movie.imdbID]">
           <h2>{{movie.Title}}</h2>
         </ion-label>
       </ion-item>

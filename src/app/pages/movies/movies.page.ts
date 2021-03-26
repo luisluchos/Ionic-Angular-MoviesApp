@@ -16,7 +16,7 @@ export class MoviesPage implements OnInit {
   ngOnInit() {
     
   }
-search(event){
+search(event:any){
   let searchMovie: string = event.target.value
   this.movies= this.apiservice.getMovies(searchMovie)
 }
