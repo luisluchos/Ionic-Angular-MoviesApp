@@ -12,7 +12,7 @@
     <ion-grid >
       <ion-col >
         <ion-card >
-          <img class="align-img" [src]="movie.Poster" />
+          <img class="align-img" [src]="movie.Poster | noImage" />
           <ion-card-header class="align-center">
             <ion-card-subtitle>{{movie.Genre}}</ion-card-subtitle>
             <ion-card-title>{{movie.Title}}</ion-card-title>

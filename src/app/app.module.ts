@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiErrorInterceptorService } from './services/api-error-interceptor.service';
+import { NoImagePipe } from './pipes/no-image.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NoImagePipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
