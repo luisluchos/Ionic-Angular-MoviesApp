@@ -9,14 +9,16 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 })
 export class MoviesPage implements OnInit {
   movies:Observable<any>
-  movie:string= "Batman"
+  searchMovie:string= ""
 
   constructor(private apiservice: MovieApiService) { }
 
   ngOnInit() {
-    this.movies= this.apiservice.getMovies(this.movie)
-console.log("movies:" ,this.movies);
-
+    
   }
+search(event){
+  let searchMovie: string = event.target.value
+  this.movies= this.apiservice.getMovies(searchMovie)
+}
 
 }
